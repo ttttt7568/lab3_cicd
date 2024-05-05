@@ -31,8 +31,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build Docker image for main branch
-                sh 'echo "$env.BRANCH_NAME"'
-                sh 'echo $env.BRANCH_NAME'                                
+                sh 'echo ${env.BRANCH_NAME}'                             
                 sh 'echo $MAIN_IMAGE'
                 sh 'docker build -t test12345 .'               
             }
