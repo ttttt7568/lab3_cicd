@@ -31,16 +31,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build Docker image for main branch
-                script {
-                    if (env.BRANCH_NAME == 'main') {
-                        sh "docker stop main || true"
-                        sh "docker rm main || true"
-                        sh "docker build -t $MAIN_IMAGE ."
-                    } else if (env.BRANCH_NAME == 'dev') {
-                        sh "docker stop dev || true"
-                        sh "docker rm dev || true"
-                        sh "docker build -t $DEV_IMAGE ."
-                    }
+                sh 'echo $env.BRANCH_NAME'
+                sh 'echo $MAIN_IMAGE'
+                sh 'docker build -t test12345 .'               
                 }
             }
         }
