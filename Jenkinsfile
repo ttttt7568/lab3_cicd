@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Run Docker container based on branch
-                sh 'docker run -d --expose 3000 -p 3000:3000 --name main'
+                sh 'docker run -d --expose 3000 -p 3000:3000 test12345'
             }
         }
     }
