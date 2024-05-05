@@ -34,7 +34,6 @@ pipeline {
                 sh 'echo $env.BRANCH_NAME'
                 sh 'echo $MAIN_IMAGE'
                 sh 'docker build -t test12345 .'               
-                }
             }
         }
 
