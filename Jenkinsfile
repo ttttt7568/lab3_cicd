@@ -9,28 +9,24 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from Git repository
                 checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                // Install dependencies for NodeJS application
                 sh 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                // Test NodeJS application
                 sh 'npm test'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                // Build Docker image for main branch
                 script {
                     if (env.BRANCH_NAME == 'main') {
                         echo 'Building Docker image for main branch...'
@@ -53,7 +49,6 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Run Docker container based on branch
                 script {
                     if (env.BRANCH_NAME == 'main') {
                         echo 'Deploying Docker container for main branch...'
